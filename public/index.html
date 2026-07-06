@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Simple LLM Chat</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="app">
+    <header>
+      <h1>Simple Chat</h1>
+      <button id="clearChat" title="Clear chat">Clear</button>
+    </header>
+
+    <div id="messages"></div>
+
+    <form id="chatForm">
+      <textarea id="userInput" rows="1" placeholder="Type a message..." required></textarea>
+      <button type="submit" id="sendBtn">Send</button>
+    </form>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
