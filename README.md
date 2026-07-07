@@ -14,6 +14,7 @@ A minimal single-page chat UI backed by the Google Gemini API. No frameworks, no
 
 2. Run the server:
 
+   To run the application
    ```
    python backend/server.py
    ```
