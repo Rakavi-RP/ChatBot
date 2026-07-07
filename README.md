@@ -15,7 +15,7 @@ A minimal single-page chat UI backed by the Google Gemini API. No frameworks, no
 2. Run the server:
 
    ```
-   python server.py
+   python backend/server.py
    ```
 
 3. Open `http://localhost:8000` in your browser.
@@ -24,11 +24,11 @@ The port can be overridden with the `PORT` environment variable. There is no pac
 
 ## Architecture
 
-- **`server.py`** — a single `ThreadingHTTPServer` handler doing two jobs:
-  - `do_GET`: serves static files from `public/` (path-traversal-checked).
+- **`backend/server.py`** — a single `ThreadingHTTPServer` handler doing two jobs:
+  - `do_GET`: serves static files from `frontend/` (path-traversal-checked).
   - `do_POST` on `/api/chat`: proxies chat requests to the Gemini `generateContent` REST endpoint using only `urllib` (no SDK). It reads `.env` itself via a hand-rolled parser rather than a library like `python-dotenv`.
-- **`public/app.js`** — frontend chat logic. Conversation history is kept client-side as a plain array of Gemini-format `{role, parts}` turns and round-tripped on every request: the client sends the full `history` plus the new message, and the server echoes back the updated `history` (including the model's reply). The server itself is stateless between requests — no session or database.
-- **`public/index.html`** / **`public/style.css`** — static shell, no templating.
+- **`frontend/app.js`** — frontend chat logic. Conversation history is kept client-side as a plain array of Gemini-format `{role, parts}` turns and round-tripped on every request: the client sends the full `history` plus the new message, and the server echoes back the updated `history` (including the model's reply). The server itself is stateless between requests — no session or database.
+- **`frontend/index.html`** / **`frontend/style.css`** — static shell, no templating.
 
 ## API
 
