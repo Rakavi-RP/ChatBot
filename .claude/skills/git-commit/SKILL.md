@@ -19,12 +19,13 @@ Guide the user through reviewing and committing Git changes safely, stopping for
 
 2. **Run `git status`.** Explain the output in plain terms: which files are modified, newly added (staged), deleted, or untracked. Group them clearly (e.g. "Modified: ...", "Untracked: ...", "Deleted: ...").
 
-3. **Run `git diff`** to inspect unstaged changes. If staged changes exist, also run `git diff --staged`. Summarize, per file:
-   - What changed (added / removed / modified lines or blocks)
-   - The likely purpose of the change
-   - The impact of the change (behavior, risk, scope)
+3. **Run `git diff`** to inspect unstaged tracked changes.
 
-   Do not just repeat the raw diff — synthesize it into a readable summary.
+If untracked files exist:
+- Inform the user that `git diff` will not display untracked files.
+- Summarize the untracked files by explaining what they contain and their purpose.
+- If the user wants more detail, display or explain the contents of those files.
+- Continue with the workflow.
 
 4. **Ask whether to stage the changes.** Wait for a yes/no answer.
 
